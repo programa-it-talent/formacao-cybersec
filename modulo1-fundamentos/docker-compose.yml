@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  ubuntu:
+    image: ubuntu:20.04
+    container_name: ubuntu_lab
+    command: sleep infinity
+    tty: true
+    networks:
+      cyberlab:
+        ipv4_address: 172.28.1.10
+
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali_lab
+    command: sleep infinity
+    tty: true
+    networks:
+      cyberlab:
+        ipv4_address: 172.28.1.20
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa_lab
+    ports:
+      - "8080:80"
+    environment:
+      - MYSQL_PASS=p@ssw0rd
+    networks:
+      cyberlab:
+        ipv4_address: 172.28.1.30
+
+networks:
+  cyberlab:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
