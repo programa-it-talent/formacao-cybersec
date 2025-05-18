@@ -1,24 +1,33 @@
-
 services:
-  ubuntu:
+  ubuntu_lab:
     image: ubuntu:20.04
     container_name: ubuntu_lab
-    command: bash -c "apt update && apt install -y iputils-ping && echo 'Xl2SvVlv+e4QkLk5LoG4a2ZiavwJGy43rGDHwnCwZnpYLJ02pZvk+ihTMqFkdD4U9QbwKsqTpesmFxcKUliwWWSYrkLFAgyfMPbiLsstdiwz95O46cw5s8Fl+KNvfxPkwIoSMQJMgZQ5bEh1RIlXys1aGdAOTwy8yECscnjy9Juu21xVcRhUiQH2Gnw2PnCSfJ2S44Zc3Ebj3ZT04durWZ5IdO/nBbFQASHwegzPOnXOkyvOWKjnk6ly0Ef+LfJt60BP2CiJijZoq0S6hzZd957uV2AC5G9FOVwlyXIkMVOchavjpIbJajotVzNnAVUdnGIc2pqqJYvspvXp97zHrg==' | base64 -d > /root/flag.txt && bash"
+    command: bash -c "\
+      apt update && \
+      apt install -y iputils-ping && \
+      cp /flag/id_rsa.pem /root/id_rsa.pem && \
+      echo 'Xl2SvVlv+e4QkLk5LoG4a2ZiavwJGy43rGDHwnCwZnpYLJ02pZvk+ihTMqFkdD4U9QbwKsqTpesmFxcKUliwWWSYrkLFAgyfMPbiLsstdiwz95O46cw5s8Fl+KNvfxPkwIoSMQJMgZQ5bEh1RIlXys1aGdAOTwy8yECscnjy9Juu21xVcRhUiQH2Gnw2PnCSfJ2S44Zc3Ebj3ZT04durWZ5IdO/nBbFQASHwegzPOnXOkyvOWKjnk6ly0Ef+LfJt60BP2CiJijZoq0S6hzZd957uV2AC5G9FOVwlyXIkMVOchavjpIbJajotVzNnAVUdnGIc2pqqJYvspvXp97zHrg==' | base64 -d > /root/FLAG.txt && \
+      bash"
+    volumes:
+      - .:/flag:ro
     tty: true
     networks:
       cyberlab:
         ipv4_address: 172.28.1.10
 
-  kali:
+  kali_lab:
     image: kalilinux/kali-rolling
     container_name: kali_lab
-    command: sleep infinity
+    command: bash -c "\
+      apt update && \
+      apt install -y iputils-ping net-tools curl nmap dnsutils tcpdump wireshark netcat whois && \
+      bash"
     tty: true
     networks:
       cyberlab:
         ipv4_address: 172.28.1.20
 
-  dvwa:
+  dvwa_lab:
     image: vulnerables/web-dvwa
     container_name: dvwa_lab
     ports:
