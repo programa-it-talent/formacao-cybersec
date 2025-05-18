@@ -29,6 +29,7 @@ services:
 
   dvwa_lab:
     image: vulnerables/web-dvwa
+    platform: linux/amd64
     container_name: dvwa_lab
     ports:
       - "8080:80"
