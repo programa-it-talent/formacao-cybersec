@@ -20,7 +20,7 @@ services:
     container_name: kali_lab
     command: bash -c "\
       apt update && \
-      apt install -y iputils-ping net-tools curl nmap dnsutils tcpdump wireshark netcat whois && \
+      apt install -y iputils-ping net-tools curl nmap dnsutils tcpdump wireshark netcat-traditional whois && \
       bash"
     tty: true
     networks:
