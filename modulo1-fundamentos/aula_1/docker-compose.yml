@@ -2,6 +2,7 @@ services:
   ubuntu_lab:
     image: ubuntu:20.04
     container_name: ubuntu_lab
+    entrypoint: ["/bin/bash", "-c"]
     command: bash -c "\
       apt update && \
       apt install -y iputils-ping openssl && \
@@ -18,6 +19,7 @@ services:
   kali_lab:
     image: kalilinux/kali-rolling
     container_name: kali_lab
+    entrypoint: ["/bin/bash", "-c"]
     command: bash -c "\
       apt update && \
       apt install -y iputils-ping net-tools curl nmap dnsutils tcpdump wireshark netcat-traditional whois && \
