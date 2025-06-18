@@ -22,7 +22,6 @@ docker-recon-lab/
 ## 🚀 Instruções de uso
 
 ```bash
-cd docker-recon-lab
 docker compose build
 docker compose up -d
 docker compose run --rm kali bash
@@ -79,7 +78,6 @@ docker compose run --rm kali bash
 - **Resultado esperado:**  
   ```
   /secret              (Status: 200)
-  /login               (Status: 403)
   ```
 
 ---
