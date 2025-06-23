@@ -1,17 +1,16 @@
-# Dockerfile para o Kali Linux com Wireshark (para este lab, será usado para gerar tráfego)
+# Dockerfile para o Kali Linux (para este lab, será usado para gerar tráfego)
 FROM kalilinux/kali-rolling
 
 LABEL maintainer="Kensei CyberSec Lab <info@kensei.com>"
 
-# Atualiza os pacotes e instala o Wireshark (embora não usaremos GUI aqui) e curl
-# E ferramentas para DNS como dnsutils (que inclui nslookup)
+# Atualiza os pacotes e instala Wireshark (não GUI), curl, dnsutils E iputils-ping
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y wireshark curl dnsutils && \
+    apt install -y wireshark curl dnsutils iputils-ping && \
     rm -rf /var/lib/apt/lists/*
 
 # Por padrão, o usuário será root, que é o padrão da imagem kali-rolling
 WORKDIR /root
 
-# Comando padrão ao iniciar o container (abre um shell bash)
-CMD ["/bin/bash"]
+# Comando padrão ao iniciar o container: mantém o contêiner vivo em segundo plano
+CMD ["tail", "-f", "/dev/null"]
