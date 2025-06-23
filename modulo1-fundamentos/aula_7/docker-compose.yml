@@ -1,8 +1,22 @@
 version: '3.8'
 
 services:
-  # O kali-aula7 não será iniciado por padrão neste lab (aula 7),
-  # Ele permanece aqui para organização e uso em futuras aulas, se necessário.
+  kali-aula7:
+    build:
+      context: .
+      dockerfile: Dockerfile.kali # Certifique-se que este Dockerfile.kali existe e está correto
+    container_name: kali-aula7
+    cap_add:
+      - NET_ADMIN # Necessário para ferramentas de rede dentro do Kali
+    # Não precisamos mais das variáveis DISPLAY aqui, pois Wireshark é local no host
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    # volumes:
+    #   - /tmp/.X11-unix:/tmp/.X11-unix
+    volumes:
+      - ./shared_volume:/mnt/shared # Volume compartilhado se for útil futuramente
+    networks:
+      - kensei_network
 
   web-server-aula7:
     build:
