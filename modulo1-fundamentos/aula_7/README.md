@@ -226,9 +226,9 @@ Agora que você dominou o básico, o desafio é ir além e demonstrar suas novas
 2.  **Identificar o seu próprio IP local e o IP do site externo:** Use filtros como `ip.addr == <seu_ip_local>` e observe as conversas com IPs externos.
 3.  **Localizar o User-Agent do seu navegador:** Encontre pelo menos uma requisição HTTP GET para um site externo e mostre onde o User-Agent do seu navegador é exibido nos detalhes do pacote.
 4.  **Capturar e analisar o tráfego DNS:**
-    * No terminal do Kali (dentro do contêiner), digite `nslookup kenseicybersec.com` (ou outro domínio que você queira testar).
+    * No terminal do Kali (dentro do contêiner), digite `nslookup kensei.seg.br` (ou outro domínio que você queira testar).
     * No Wireshark (no seu host), use o filtro `dns`.
-    * Encontre as requisições e respostas DNS para `kenseicybersec.com` ou o domínio que você consultou.
+    * Encontre as requisições e respostas DNS para `kensei.seg.br` ou o domínio que você consultou.
     * Nos detalhes do pacote DNS, encontre o IP retornado para o domínio.
 
 **Para cumprir o desafio:**
