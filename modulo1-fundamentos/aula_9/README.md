@@ -56,48 +56,48 @@ Vamos treinar. Execute cada comando e entenda o que ele faz.
 1.  **Onde estou? (`pwd`)**
     O primeiro passo em qualquer ambiente é saber sua localização.
     ```bash
-    ┌──(kali㉿)-[/] pwd
+    pwd
     ```
     A saída `/` indica que você está na raiz do sistema de arquivos.
 
 2.  **O que há ao meu redor? (`ls`)**
     Liste os arquivos e diretórios. A opção `-la` nos dá uma visão detalhada.
     ```bash
-    ┌──(kali㉿)-[/] ls -la
+    ls -la
     ```
     Você verá a estrutura de pastas padrão do Linux (`/bin`, `/etc`, `/home`, `/root`, etc.). É como olhar o mapa do território.
 
 3.  **Indo para casa (`cd`)**
     O diretório "home" do usuário `root` é `/root`. É o nosso espaço pessoal.
     ```bash
-    ┌──(kali㉿)-[/] cd /root
-    ┌──(kali㉿)-[/root] pwd
+    cd /root
+    pwd
     ```
     A saída agora será `/root`.
 
 4.  **Criando nosso espaço de treino (`mkdir`)**
     Todo Kensei precisa de uma área para praticar.
     ```bash
-    ┌──(kali㉿)-[/root] mkdir espaco_de_treino
-    ┌──(kali㉿)-[/root] ls
+    mkdir espaco_de_treino
+    ls
     ```
     Veja o novo diretório `espaco_de_treino` listado.
 
 5.  **Entrando no espaço de treino (`cd`)**
     ```bash
-    ┌──(kali㉿)-[/root] cd espaco_de_treino
+    cd espaco_de_treino
     ```
 
 6.  **Escrevendo nosso primeiro pergaminho (`echo`)**
     O comando `echo` escreve texto. O `>` redireciona esse texto para um arquivo.
     ```bash
-    ┌──(kali㉿)-[/root/espaco_de_treino] echo "A disciplina é a ponte entre metas e realizações." > pergaminho.txt
+    echo "A disciplina é a ponte entre metas e realizações." > pergaminho.txt
     ```
 
 7.  **Lendo o pergaminho (`cat`)**
     Use `cat` para exibir o conteúdo de um arquivo no terminal.
     ```bash
-    ┌──(kali㉿)-[/root/espaco_de_treino] cat pergaminho.txt
+    cat pergaminho.txt
     ```
     A sabedoria do Kensei aparecerá na sua tela.
 
@@ -118,7 +118,7 @@ Ao final do treino, um bom guerreiro sempre limpa seu espaço.
 
 1.  **Saindo do Kali:**
     ```bash
-    ┌──(kali㉿)-[...] exit
+    exit
     ```
 2.  **Desligando o Ambiente:**
     No terminal da sua máquina (na pasta `kali-cli`), desligue o container.

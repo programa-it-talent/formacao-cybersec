@@ -1,15 +1,20 @@
-# Dockerfile atualizado para o lab GUI
+# Dockerfile ATUALIZADO com correção de mirror
 FROM kalilinux/kali-rolling
+
+# <<< A MÁGICA ACONTECE AQUI >>>
+# Força o uso do repositório HTTP principal do Kali, evitando mirrors instáveis.
+RUN echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list
 
 ARG VNC_PASSWORD=kensei
 ENV VNC_PASSWORD=${VNC_PASSWORD}
 ENV USER=root
 
+# Agora o apt-get vai usar a fonte que definimos acima
 RUN apt-get update && \
-    apt-get install -y kali-desktop-xfce tightvncserver && \
+    apt-get install -y kali-desktop-xfce kali-linux-default tightvncserver && \
     apt-get clean
 
-# <<< ADICIONANDO O DESAFIO DIRETAMENTE NA IMAGEM >>>
+# O desafio continua sendo incluído
 RUN mkdir -p /root/.diretorio_secreto && \
     echo "KenseiCyberSec{D3s4f10_CLI_C0nclu1d0!}" > /root/.diretorio_secreto/.segredo_dojo
 
