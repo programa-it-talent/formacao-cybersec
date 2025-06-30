@@ -1,8 +1,8 @@
-# Formação CyberSec ⚔️ - Guia de Aula Prática #9: Seu Primeiro Dojo no Kali Linux
+# Formação CyberSec ⚔️ - Guia de Aula Prática #9: Seu Dojo de Ataque no Kali Linux
 
 Olá, guerreiro(a) cibernético(a)!
 
-Este documento é a nossa **Aula Prática #9**. Hoje, vamos configurar e explorar a ferramenta mais essencial no arsenal de um profissional de segurança: o **Kali Linux**. Este não é apenas um arquivo de instruções; é a sua aula. Siga cada passo, leia as explicações e, o mais importante, execute os comandos para sentir o poder na ponta dos seus dedos.
+Eu sou o Kaze, e este documento é a nossa **Aula Prática #9**. Hoje, vamos configurar e explorar a ferramenta mais essencial no arsenal de um profissional de segurança: o **Kali Linux**. Este não é apenas um arquivo de instruções; é a sua aula. Siga cada passo, leia as explicações e, o mais importante, execute os comandos para sentir o poder na ponta dos seus dedos.
 
 Nosso objetivo é duplo:
 1.  **Dominar o Terminal (CLI):** Aprender a "lâmina", a forma mais pura, rápida e poderosa de interagir com sistemas.
@@ -12,7 +12,7 @@ Vamos começar.
 
 ---
 
-## Parte 1: O Que é o Kali Linux e Por Que o Terminal é Rei?
+## Parte 1: O Que é o Kali Linux e Por Que Começamos pelo Terminal?
 
 Antes de mergulhar na prática, entenda sua ferramenta. O **Kali Linux** é uma distribuição de Linux (baseada em Debian) criada especificamente para tarefas de segurança e pentest. Pense nele como um canivete suíço com centenas de lâminas afiadas: ferramentas para mapear redes, encontrar vulnerabilidades, explorar falhas, analisar senhas e muito mais.
 
@@ -26,18 +26,16 @@ Agora que a filosofia está clara, vamos sujar as mãos.
 
 ## Parte 2: Laboratório Prático 1 - O Caminho da Lâmina (CLI)
 
-Nesta seção, vamos construir nosso dojo de linha de comando e praticar os movimentos fundamentais.
+Nesta seção, vamos construir nosso dojo de linha de comando e praticar os movimentos fundamentais. O desafio da aula já está "assado" dentro do ambiente.
 
 ### 2.1 Preparando e Acessando seu Dojo
-
-Os arquivos `Dockerfile` e `docker-compose.yml` na pasta `kali-cli` são a planta do nosso dojo. Eles instruem o Docker a construir um ambiente Kali já com o nosso desafio "assado" dentro dele.
 
 1.  **Navegue até a pasta do lab:**
     Abra seu terminal e certifique-se de que você está no diretório `kali-cli`.
 
 2.  **Construa e inicie o ambiente:**
     ```bash
-    # O comando --build é essencial na primeira vez. Ele lê nossa "planta" (Dockerfile) e constrói a imagem.
+    # O comando --build é essencial na primeira vez para criar a imagem com o desafio.
     docker compose up -d --build
     ```
 
@@ -47,84 +45,34 @@ Os arquivos `Dockerfile` e `docker-compose.yml` na pasta `kali-cli` são a plant
     # Este comando nos dá um shell de bash dentro do container 'kali_cli_kensei'
     docker exec -it kali_cli_kensei /bin/bash
     ```
-    Seu prompt de comando mudou para `root@...:/#`. Você está dentro. A partir de agora, todos os comandos são executados dentro do Kali.
+    Seu prompt de comando mudou para `root@...:/#`. Você está dentro.
 
 ### 2.2 Dominando os Comandos Essenciais
 
 Vamos treinar. Execute cada comando e entenda o que ele faz.
 
-1.  **Onde estou? (`pwd`)**
-    O primeiro passo em qualquer ambiente é saber sua localização.
-    ```bash
-    pwd
-    ```
-    A saída `/` indica que você está na raiz do sistema de arquivos.
-
-2.  **O que há ao meu redor? (`ls`)**
-    Liste os arquivos e diretórios. A opção `-la` nos dá uma visão detalhada.
-    ```bash
-    ls -la
-    ```
-    Você verá a estrutura de pastas padrão do Linux (`/bin`, `/etc`, `/home`, `/root`, etc.). É como olhar o mapa do território.
-
-3.  **Indo para casa (`cd`)**
-    O diretório "home" do usuário `root` é `/root`. É o nosso espaço pessoal.
-    ```bash
-    cd /root
-    pwd
-    ```
-    A saída agora será `/root`.
-
-4.  **Criando nosso espaço de treino (`mkdir`)**
-    Todo Kensei precisa de uma área para praticar.
-    ```bash
-    mkdir espaco_de_treino
-    ls
-    ```
-    Veja o novo diretório `espaco_de_treino` listado.
-
-5.  **Entrando no espaço de treino (`cd`)**
-    ```bash
-    cd espaco_de_treino
-    ```
-
-6.  **Escrevendo nosso primeiro pergaminho (`echo`)**
-    O comando `echo` escreve texto. O `>` redireciona esse texto para um arquivo.
-    ```bash
-    echo "A disciplina é a ponte entre metas e realizações." > pergaminho.txt
-    ```
-
-7.  **Lendo o pergaminho (`cat`)**
-    Use `cat` para exibir o conteúdo de um arquivo no terminal.
-    ```bash
-    cat pergaminho.txt
-    ```
-    A sabedoria do Kensei aparecerá na sua tela.
+1.  **Onde estou? (`pwd`)**: Descubra o diretório atual.
+2.  **O que há ao meu redor? (`ls -la`)**: Liste os arquivos e diretórios.
+3.  **Indo para casa (`cd /root`)**: Navegue para o diretório "home" do usuário root.
+4.  **Criando nosso espaço de treino (`mkdir espaco_de_treino`)**: Crie um diretório.
+5.  **Escrevendo nosso primeiro pergaminho (`echo "texto" > arquivo.txt`)**: Crie um arquivo com conteúdo.
+6.  **Lendo o pergaminho (`cat arquivo.txt`)**: Exiba o conteúdo de um arquivo.
 
 ### 2.3 Desafio: Encontrando o Pergaminho Secreto
 
-Você treinou os movimentos básicos. Agora, um teste. Eu escondi uma "flag" (uma prova, um segredo) em algum lugar no seu ambiente.
+Agora que você está aquecido, um teste final. O desafio (`.segredo_dojo`) já está no sistema.
 
 * **Sua Missão:** Encontrar e ler o conteúdo do arquivo `.segredo_dojo`.
 * **Pistas:**
     * Ele está em um diretório oculto (o nome do diretório começa com `.`).
     * Este diretório está na pasta `/root`.
 
-Use `ls -la`, `cd` e `cat` para encontrar a flag. Poste-a em nosso grupo com a hashtag **#DesafioAula9**!
+Use `ls -la`, `cd` e `cat` para encontrar a flag!
 
 ### 2.4 Limpando o Dojo
 
-Ao final do treino, um bom guerreiro sempre limpa seu espaço.
-
-1.  **Saindo do Kali:**
-    ```bash
-    exit
-    ```
-2.  **Desligando o Ambiente:**
-    No terminal da sua máquina (na pasta `kali-cli`), desligue o container.
-    ```bash
-    docker compose down
-    ```
+1.  **Saindo do Kali:** `exit`
+2.  **Desligando o Ambiente:** Na pasta `kali-cli`, rode `docker compose down`.
 
 ---
 
@@ -137,7 +85,7 @@ Você provou que pode lutar com a lâmina nua. Agora, vamos explorar o arsenal t
 1.  **Navegue e Inicie:**
     Vá para a pasta `kali-gui` no seu terminal e execute:
     ```bash
-    # Lembre-se, este build pode levar vários minutos!
+    # Este build pode ser demorado, pois instala centenas de ferramentas.
     docker compose up -d --build
     ```
 
@@ -146,35 +94,31 @@ Você provou que pode lutar com a lâmina nua. Agora, vamos explorar o arsenal t
     * Conecte-se ao endereço: `localhost:5901`
     * Senha: `kensei`
 
-Bem-vindo ao desktop do Kali!
+Bem-vindo ao desktop completo do Kali!
 
-### 3.2 Explorando o Arsenal Visual
+### 3.2 Explorando o Arsenal Visual (Alinhado ao MITRE ATT&CK®)
 
-1.  **O Terminal Ainda Vive:** A primeira coisa a fazer é abrir o terminal dentro da GUI. Encontre o ícone e clique nele. Execute `ls /root` e `ls -la /root`. Viu? O desafio `.diretorio_secreto` também está aqui. Por baixo dos panos, é o mesmo sistema poderoso.
+Clique no menu de aplicações (o ícone do dragão do Kali). Você notará que as categorias seguem as táticas do framework **MITRE ATT&CK®**, o padrão da indústria. Sua tarefa é explorar:
 
-2.  **O Mapa do Tesouro (Menu de Aplicações):** O grande valor da GUI é a descoberta. Clique no menu de aplicações (o ícone do dragão do Kali). Navegue pelas categorias. Não precisa clicar nas ferramentas ainda, apenas veja o que existe:
-    * Em `01 - Information Gathering`, você encontrará ferramentas como `nmap` e `maltego`.
-    * Em `03 - Web Application Analysis`, você verá o `burp suite`.
-    * Em `05 - Password Attacks`, você achará o `hashcat` e o `john the ripper`.
+* Em `01 - Reconnaissance` (Reconhecimento), você encontrará ferramentas como `nmap` e `maltego`.
+* Em `08 - Credential Access` (Acesso a Credenciais), você achará o arsenal para quebra de senhas, como `hashcat` e `john`.
+* Em `03 - Initial Access` (Acesso Inicial) e `04 - Execution` (Execução), você encontrará o poderoso `metasploit-framework`.
 
-    Sua tarefa aqui é simplesmente **explorar**. Crie um mapa mental de onde as principais ferramentas estão localizadas. Isso economizará um tempo precioso no futuro.
+Crie este novo mapa mental, que é muito mais alinhado com um processo de pentest profissional.
 
 ### 3.3 Encerrando o Laboratório Gráfico
 
 1.  Feche a janela do VNC Viewer.
-2.  No seu terminal, na pasta `kali-gui`, desligue o ambiente:
-    ```bash
-    docker compose down
-    ```
+2.  No seu terminal, na pasta `kali-gui`, desligue o ambiente: `docker compose down`.
 
 ---
 
 ## Conclusão da Aula
 
-Parabéns! Hoje você montou e explorou seu primeiro dojo de segurança. Você aprendeu a importância do terminal, praticou os comandos essenciais e entendeu o lugar da interface gráfica no seu cinto de ferramentas.
+Parabéns! Hoje você montou e explorou seu **dojo de ataque com Kali Linux**, uma peça fundamental que se junta ao seu crescente arsenal de laboratórios de segurança. Você aprendeu a importância do terminal, praticou os comandos essenciais e entendeu o lugar da interface gráfica no seu cinto de ferramentas.
 
-A prática constante leva à maestria. Repita esses laboratórios até que os comandos se tornem memória muscular.
+A prática constante leva à maestria. Repita esses laboratórios, assim como os anteriores, até que os comandos se tornem memória muscular.
 
-Até a próxima aula, onde usaremos nosso dojo CLI para a primeira missão real: Reconhecimento com Nmap.
+Até a próxima aula, onde usaremos nosso novo dojo CLI para a primeira missão real: Reconhecimento com Nmap.
 
-**Kaze, desligando.** 🥷
+**desligando.** 🥷
