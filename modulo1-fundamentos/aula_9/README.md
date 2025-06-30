@@ -2,7 +2,7 @@
 
 Olá, guerreiro(a) cibernético(a)!
 
-Eu sou o Kaze, e este documento é a nossa **Aula Prática #9**. Hoje, vamos configurar e explorar a ferramenta mais essencial no arsenal de um profissional de segurança: o **Kali Linux**. Este não é apenas um arquivo de instruções; é a sua aula. Siga cada passo, leia as explicações e, o mais importante, execute os comandos para sentir o poder na ponta dos seus dedos.
+Este documento é a nossa **Aula Prática #9**. Hoje, vamos configurar e explorar a ferramenta mais essencial no arsenal de um profissional de segurança: o **Kali Linux**. Este não é apenas um arquivo de instruções; é a sua aula. Siga cada passo, leia as explicações e, o mais importante, execute os comandos para sentir o poder na ponta dos seus dedos.
 
 Nosso objetivo é duplo:
 1.  **Dominar o Terminal (CLI):** Aprender a "lâmina", a forma mais pura, rápida e poderosa de interagir com sistemas.
@@ -80,7 +80,30 @@ Use `ls -la`, `cd` e `cat` para encontrar a flag!
 
 Você provou que pode lutar com a lâmina nua. Agora, vamos explorar o arsenal tecnológico que uma interface gráfica oferece.
 
-### 3.1 Preparando e Acessando o Ambiente Gráfico
+### 3.1 Ferramenta Essencial: O VNC Viewer
+
+Para acessar o desktop do nosso Kali, que está rodando "escondido" no Docker, precisamos de um programa cliente. Pense no VNC (Virtual Network Computing) como uma "janela" mágica para dentro do container.
+
+Escolha o instalador para o seu sistema operacional:
+
+* **Para Windows:** Baixe e instale o **[RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/windows/)**. A instalação é um processo padrão de "próximo-próximo-concluir".
+
+* **Para macOS:** Você pode usar o cliente nativo.
+    1.  Clique em qualquer lugar da sua Mesa (Desktop).
+    2.  No menu superior, vá em `Ir > Conectar ao Servidor...`.
+    3.  Digite `vnc://localhost:5901` e clique em Conectar.
+    * Como alternativa, você também pode baixar o **[RealVNC Viewer para Mac](https://www.realvnc.com/en/connect/download/viewer/macos/)**.
+
+* **Para Linux (Debian/Ubuntu):** Instale o **Remmina**, um cliente excelente e versátil.
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y remmina
+    ```
+    Depois de instalar, procure por "Remmina" nos seus aplicativos.
+
+Com seu cliente VNC instalado, você está pronto para o próximo passo.
+
+### 3.2 Preparando e Acessando o Ambiente Gráfico
 
 1.  **Navegue e Inicie:**
     Vá para a pasta `kali-gui` no seu terminal e execute:
@@ -90,13 +113,13 @@ Você provou que pode lutar com a lâmina nua. Agora, vamos explorar o arsenal t
     ```
 
 2.  **Conecte-se via VNC:**
-    * Abra seu programa **VNC Viewer**.
-    * Conecte-se ao endereço: `localhost:5901`
-    * Senha: `kensei`
+    * Abra o seu programa VNC Viewer instalado no passo anterior.
+    * Ele pedirá um endereço de servidor para se conectar. Digite: `localhost:5901`
+    * Pressione Enter. Quando a senha for solicitada, digite: `kensei`
 
 Bem-vindo ao desktop completo do Kali!
 
-### 3.2 Explorando o Arsenal Visual (Alinhado ao MITRE ATT&CK®)
+### 3.3 Explorando o Arsenal Visual (Alinhado ao MITRE ATT&CK®)
 
 Clique no menu de aplicações (o ícone do dragão do Kali). Você notará que as categorias seguem as táticas do framework **MITRE ATT&CK®**, o padrão da indústria. Sua tarefa é explorar:
 
@@ -106,7 +129,7 @@ Clique no menu de aplicações (o ícone do dragão do Kali). Você notará que 
 
 Crie este novo mapa mental, que é muito mais alinhado com um processo de pentest profissional.
 
-### 3.3 Encerrando o Laboratório Gráfico
+### 3.4 Encerrando o Laboratório Gráfico
 
 1.  Feche a janela do VNC Viewer.
 2.  No seu terminal, na pasta `kali-gui`, desligue o ambiente: `docker compose down`.
