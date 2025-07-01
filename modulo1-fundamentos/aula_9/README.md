@@ -97,7 +97,7 @@ Escolha o instalador para o seu sistema operacional:
 * **Para Linux (Debian/Ubuntu):** Instale o **Remmina**, um cliente excelente e versátil.
     ```bash
     sudo apt-get update
-    sudo apt-get install -y remmina
+    sudo apt-get install -y remmina remmina-plugin-vnc
     ```
     Depois de instalar, procure por "Remmina" nos seus aplicativos.
 
