@@ -5,7 +5,7 @@
 services:
   # --- O Atacante ---
   attacker:
-    container_name: corp-lab-attacker-1
+    container_name: attacker-1
     build:
       context: ./attacker
     platform: linux/amd64 # Garante compatibilidade para o atacante também

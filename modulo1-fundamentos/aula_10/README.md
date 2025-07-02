@@ -17,7 +17,7 @@ Analisar os resultados para entender a topologia e os serviços expostos.
 docker compose up -d --build
 
 # Acesse o container do atacante
-docker exec -it corp-lab-attacker-1 /bin/bash
+docker exec -it attacker-1 /bin/bash
 
 2. Reconhecimento do Terreno (Onde Estou?)
 Antes de atacar, um bom hacker primeiro olha ao seu redor para descobrir em quais redes a máquina está conectada.
